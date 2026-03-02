@@ -1,0 +1,11 @@
+{
+  "name": "cratis-studio-site",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "node ./node_modules/live-server/live-server.js . --port=5173 --no-browser"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

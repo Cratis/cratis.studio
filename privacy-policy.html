@@ -1,0 +1,193 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy — Cratis Studio</title>
+    <meta name="description" content="Privacy policy for Cratis Studio." />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo" aria-label="Cratis Studio home">
+                <img src="logo.svg" alt="Cratis Studio logo" class="nav-logo-mark" />
+                <span class="nav-brand">Cratis Studio</span>
+            </a>
+            <nav class="nav-links" aria-label="Primary navigation">
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#how-it-works" class="nav-link">How it works</a>
+                <a href="vision.html" class="nav-link">Vision</a>
+                <a href="beta.html" class="nav-link">Beta</a>
+                <a href="https://app.cratis.studio" target="_blank" rel="noopener noreferrer" class="btn-primary">Log in</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page">
+        <div class="page-wrapper">
+            <div class="page-header">
+                <span class="section-label section-label--blue">Privacy Policy</span>
+                <h1 class="section-heading">Privacy Policy</h1>
+                <p class="page-subtitle">Version 2026-08b · Effective August 1, 2026</p>
+            </div>
+
+            <div class="section-block">
+                <p>This policy explains what personal data Cratis Studio ("the Service") collects, why, how it is protected, how long it is kept, and how you get it removed. It is written to be read — the mechanisms described here are the ones the Service actually implements, not aspirations.</p>
+            </div>
+
+            <div class="section-block">
+                <h3>1. Who is responsible for what</h3>
+                <p>For the account data we need in order to run the Service — who you are, which organization you belong to, what you bought — <strong>Cratis is the controller</strong>. For the content your organization puts into the Service — models, documents, comments, and any personal data inside them — <strong>your organization is the controller and Cratis is the processor</strong>. We act on your organization's instructions and do not decide what goes in.</p>
+                <p>If you are a member of an organization and want something removed from its content, ask the organization's administrators first; they control that content. We will help them, and we will act directly on a request where the law requires us to.</p>
+            </div>
+
+            <div class="section-block">
+                <h3>2. What we collect</h3>
+                <p><strong>Identity and account data.</strong> Your name, email address, and the stable subject identifier issued by the identity provider you sign in with. We never receive or store your password — authentication happens at your identity provider.</p>
+                <p><strong>Organization data.</strong> The organization name, its members and their roles, invitations sent and accepted, and which version of the terms and privacy policy was accepted, by whom, and when.</p>
+                <p><strong>Billing data.</strong> The seats purchased, the billing cycle, subscription and payment status, and the identifiers our payment provider issues. Full card details are handled by the payment provider and never reach our systems.</p>
+                <p><strong>Your content.</strong> Everything your organization creates in the Service. This is yours; we process it only to run the Service.</p>
+                <p><strong>Operational data.</strong> Logs, error reports, and performance metrics needed to keep the Service running and secure. These can include IP addresses, timestamps, and request paths.</p>
+                <p><strong>Optional feature data.</strong> If you use dictation or spoken explanations, the audio or text involved is processed to produce the result and is not retained afterwards beyond what is needed to return it.</p>
+                <p>We do not use tracking or advertising cookies, and we do not sell personal data.</p>
+            </div>
+
+            <div class="section-block">
+                <h3>3. Why we process it, and on what basis</h3>
+                <p>Purpose | Basis</p>
+                <p>Giving you access to the Service and to your organization — Performance of the contract</p>
+                <p>Billing, invoicing, and collecting payment — Performance of the contract</p>
+                <p>Keeping the Service secure, available, and abuse-free — Legitimate interests</p>
+                <p>Recording who accepted which version of the legal terms — Legal obligation and legitimate interests</p>
+                <p>Meeting accounting and tax obligations — Legal obligation</p>
+                <p>Product and service announcements — Legitimate interests (you can opt out)</p>
+                <p>We do not use your content to train machine-learning models.</p>
+            </div>
+
+            <div class="section-block">
+                <h3>4. How personal data is protected — encryption per person</h3>
+                <p>The Service is event-sourced: what happened is recorded as an append-only sequence of events, and the state you see is derived from that sequence. An append-only log cannot simply have rows edited or deleted, so personal data is protected by a mechanism designed for that model rather than by after-the-fact deletion.</p>
+                <p><strong>Every value that identifies a person is classified as personal data at the point it is defined, and is encrypted individually before it is written.</strong></p>
+                <ul>
+                    <li>Encryption is applied per <strong>data subject</strong> — the individual the data is about. Each person's values are encrypted under a key belonging to that person, so one person's data cannot be read using another's key.</li>
+                    <li>Keys are held per <strong>organization</strong> in <a href="https://www.vaultproject.io/" style="color: #7ec8f0;">HashiCorp Vault</a>, a dedicated secrets store, separate from the systems that hold the data. Neither the event store nor the databases holding derived state ever contain a key.</li>
+                    <li>Encryption is applied wherever the value travels — inside events, inside nested structures, and inside the derived read models built from them. It does not depend on anyone remembering to annotate the next place the value appears.</li>
+                    <li>Decryption happens only when data is served to someone entitled to see it, and only for the subject in question.</li>
+                </ul>
+                <p>The practical consequence: a copy of the raw data store — a stolen disk, a leaked snapshot, an old backup — contains personal data only as ciphertext, and is worthless without the key material held separately in Vault.</p>
+                <p>Alongside this, data is encrypted in transit (TLS) and at rest at the storage layer, access is restricted to the small number of personnel who need it for operations, and each organization's data lives in its own isolated namespace.</p>
+            </div>
+
+            <div class="section-block">
+                <h3>5. Credentials you give the Service</h3>
+                <p>Some features only work if your organization hands the Service a credential belonging to it — an API key for a language model provider, for example. A credential is not personal data, but it is the key to someone else's account, so it is handled as a secret rather than as ordinary configuration.</p>
+                <ul>
+                    <li><strong>Encrypted before it is stored.</strong> A credential is encrypted while the request that supplies it is being handled, under a key belonging to <strong>your organization</strong>. What reaches the event log, and every derived read model built from it, is ciphertext. The plaintext exists only in memory, only for the moment it takes to encrypt it.</li>
+                    <li><strong>Never returned to the browser.</strong> No screen and no API the frontend can call gives back a stored credential. The settings screen lets you set one and replace it; it never shows you the one already there, because there is no path that reads one back out.</li>
+                    <li><strong>Decrypted only at the point of use.</strong> A credential is decrypted on the server, at the moment a request is made to the provider it belongs to, and the decrypted copy goes no further than that request. It is never written to a log.</li>
+                    <li><strong>What an operator can see.</strong> Personnel with access to the raw data store see ciphertext. Reading a credential additionally requires your organization's key material, and access to that is limited to the small number of people who need it to run the Service.</li>
+                </ul>
+                <p>Delete the organization and its stored credentials go with it. We recommend also revoking the credential at the provider that issued it — that is the only thing that stops it being used elsewhere, and it is outside our control.</p>
+            </div>
+
+            <div class="section-block">
+                <h3>6. Your rights, and how erasure actually works</h3>
+                <p>You have the right to access, correct, export, restrict, or object to the processing of your personal data, and the right to have it erased.</p>
+                <p><strong>Access, correction, and export.</strong> Most of it you can do yourself from your profile and your organization's settings. For anything else, contact us and we will respond within 30 days.</p>
+                <p><strong>Erasure — "the right to be forgotten".</strong> Because the event log is immutable, erasure is not performed by deleting rows. Instead, <strong>the encryption key for that person is destroyed.</strong></p>
+                <p>Once the key is gone, every value encrypted under it — across the event log, across every derived read model, across every existing backup — becomes permanently unreadable, immediately and everywhere, with no migration to run and no copy left behind that can be decrypted later. Reading such a value afterwards returns an empty value rather than an error, so the surrounding history stays intact: the record that something happened survives, while the personal detail of who it happened to does not.</p>
+                <p>This is deliberately irreversible. Erasure cannot be undone, so we confirm the request before carrying it out.</p>
+                <p>Where a specific event payload rather than a person must be removed, we can additionally redact it: the payload is replaced in place, its position in the sequence is preserved, and the redaction is itself recorded — so the history remains auditable and does not silently change shape.</p>
+                <p>Some records survive an erasure request because the law requires it — invoices and other accounting records in particular. We keep the minimum needed and for no longer than required.</p>
+            </div>
+
+            <div class="section-block">
+                <h3>7. Backups — continuous, and what they mean for you</h3>
+                <p><strong>All data in the Service is backed up continuously.</strong> This is not a nightly snapshot: the databases run with replication and point-in-time recovery, so writes are captured as they happen and the system can be restored to a chosen moment rather than to the last time a job ran.</p>
+                <ul>
+                    <li><strong>Coverage</strong> — the event log, every derived read model, and operational metadata. Nothing that carries your organization's data is left out.</li>
+                    <li><strong>Retention</strong> — backups are retained on a rolling window of <strong>35 days</strong> and then expire automatically. A restore is possible to any point inside that window.</li>
+                    <li><strong>Isolation</strong> — backups are stored encrypted, separately from the live systems, with their own access controls.</li>
+                    <li><strong>Verification</strong> — restores are exercised periodically. A backup that has never been restored is not a backup.</li>
+                    <li><strong>Personal data in backups</strong> — because personal values are encrypted per person before they are ever written, they are already ciphertext in every backup. Destroying a person's key therefore renders their data unreadable in <strong>every backup that exists</strong>, not just the live system. This is the reason erasure can be honored immediately rather than "once the backups roll over".</li>
+                </ul>
+                <p>Encryption key material itself is backed up separately under stricter controls, because losing it would make your organization's data unreadable. A key destroyed to satisfy an erasure request is destroyed in those backups too.</p>
+            </div>
+
+            <div class="section-block">
+                <h3>8. Who else processes your data</h3>
+                <p>We use a small number of sub-processors, each under a data-processing agreement and each limited to what it needs:</p>
+                <ul>
+                    <li><strong>Cloud infrastructure provider</strong> — Hosting, storage, and backups</li>
+                    <li><strong>Payment provider</strong> — Processing subscription payments</li>
+                    <li><strong>Email delivery provider</strong> — Transactional email — invitations, notifications</li>
+                    <li><strong>Identity providers</strong> — Authenticating you when you sign in</li>
+                    <li><strong>Language model providers</strong> — Only where you use an AI-assisted feature that requires one</li>
+                </ul>
+                <p>AI-assisted features send only what is needed to produce the requested result. Where a self-hosted model is available it is used in preference to an external one. Content sent to an external model provider is not used by them to train their models.</p>
+                <p>The current list is available on request. We give notice before adding a sub-processor that materially changes how your data is handled.</p>
+            </div>
+
+            <div class="section-block">
+                <h3>9. Where data is processed</h3>
+                <p>Data is processed within the European Economic Area. Where a sub-processor operates outside it, the transfer is covered by an adequacy decision or by Standard Contractual Clauses together with the technical measures described in section 4 — which, given that personal values are encrypted per person before they leave our systems, means the data transferred is ciphertext.</p>
+            </div>
+
+            <div class="section-block">
+                <h3>10. How long we keep it</h3>
+                <ul>
+                    <li><strong>Account and organization data</strong> — for as long as the organization exists, then 30 days (see the terms), then deletion.</li>
+                    <li><strong>Your content</strong> — the same, unless erased earlier at your request.</li>
+                    <li><strong>Billing and accounting records</strong> — as long as tax and accounting law requires, typically five years.</li>
+                    <li><strong>Operational logs</strong> — 90 days.</li>
+                    <li><strong>Backups</strong> — 35 days on a rolling window (section 7).</li>
+                </ul>
+            </div>
+
+            <div class="section-block">
+                <h3>11. Children</h3>
+                <p>The Service is not intended for children under 16 and we do not knowingly collect their personal data. If you believe we have, contact us and we will remove it.</p>
+            </div>
+
+            <div class="section-block">
+                <h3>12. Breach notification</h3>
+                <p>If a breach occurs that is likely to result in a risk to people's rights and freedoms, we notify the relevant supervisory authority within 72 hours of becoming aware of it, and we notify affected organizations without undue delay — with what happened, what data was involved, and what we are doing about it.</p>
+            </div>
+
+            <div class="section-block">
+                <h3>13. Changes to this policy</h3>
+                <p>We may update this policy. Every version carries a version marker, and the version you accepted is recorded against your organization together with who accepted it and when. For material changes we give at least 30 days' notice and ask for acceptance of the new version.</p>
+            </div>
+
+            <div class="section-block">
+                <h3>14. Contact</h3>
+                <p>Privacy questions, and requests to access or erase your data: <strong>privacy@cratis.io</strong></p>
+                <p>You also have the right to lodge a complaint with your local data protection authority.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <a href="index.html" class="footer-logo" aria-label="Cratis Studio">
+                <img src="logo.svg" alt="Cratis Studio logo" class="nav-logo-mark" />
+                <span class="footer-brand">Cratis Studio</span>
+            </a>
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="vision.html" class="footer-link">Vision</a>
+                <a href="beta.html" class="footer-link">Beta</a>
+                <a href="terms-and-conditions.html" class="footer-link">Terms</a>
+                <a href="https://app.cratis.studio" target="_blank" rel="noopener noreferrer" class="footer-link">Log in</a>
+            </div>
+            <p class="footer-copy">© 2025 Cratis. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

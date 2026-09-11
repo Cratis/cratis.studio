@@ -9,4 +9,4 @@ development.
 
 Read every concern below before working in this repository. Together they are the project-owned instructions and override conflicting shared guidance.
 
-- [AI-assisted development](project/ai-assisted-development.md)
+- [AI-assisted development](.cratis/ai/rules/project/ai-assisted-development.md)

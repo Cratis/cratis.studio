@@ -67,6 +67,7 @@
                 <a href="beta.html" class="nav-link">Beta</a>
                 <a href="https://cratis.io" target="_blank" rel="noopener noreferrer" class="nav-link">Docs ↗</a>
                 <a href="https://app.cratis.studio" target="_blank" rel="noopener noreferrer" class="btn-primary">Log in</a>
+                <a href="https://lobby.cratis.studio/register?offer=trial&amp;utm_source=cratis.studio&amp;utm_medium=cta&amp;utm_content=nav" class="btn-primary" data-signup hidden>Start free trial</a>
             </nav>
         </div>
     </header>
@@ -97,13 +98,21 @@
         </p>
 
         <div class="hero-actions">
-            <a href="#" class="btn-hero-primary">
+            <a href="#" class="btn-hero-primary" data-coming-soon>
                 <!-- arrow right icon -->
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
                     stroke-linejoin="round" aria-hidden="true">
                     <path d="M5 8h6M8 5l3 3-3 3" />
                 </svg>
                 Coming soon
+            </a>
+            <a href="https://lobby.cratis.studio/register?offer=trial&amp;utm_source=cratis.studio&amp;utm_medium=cta&amp;utm_content=hero" class="btn-hero-primary" data-signup hidden>
+                <!-- arrow right icon -->
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 8h6M8 5l3 3-3 3" />
+                </svg>
+                Start your 14-day free trial
             </a>
             <a href="https://cratis.io" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
                 <!-- book icon -->
@@ -610,15 +619,32 @@
         </h2>
         <p class="cta-text">
             Join teams using Cratis Studio to align business and engineering around a shared model.
-            Free to get started — no credit card required.
+            <span data-coming-soon>Free to get started — no credit card required.</span>
+            <span data-signup hidden>Try it free for 14 days — no credit card required.</span>
         </p>
+        <div class="cta-trial" data-signup hidden>
+            <h3 class="cta-trial-title">How the free trial works</h3>
+            <ul class="cta-trial-list">
+                <li>Sign up with GitHub, Google or Microsoft and name your organization.</li>
+                <li>You get the full product for 14 days, for one user. No credit card required.</li>
+                <li>Choose a plan in the billing settings whenever you are ready, and invite your team.</li>
+                <li>When the trial ends, your organization and its models are kept - choose a plan to continue working.</li>
+            </ul>
+        </div>
         <div class="cta-actions">
-            <a href="#" class="btn-hero-primary">
+            <a href="#" class="btn-hero-primary" data-coming-soon>
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
                     stroke-linejoin="round" aria-hidden="true">
                     <path d="M5 8h6M8 5l3 3-3 3" />
                 </svg>
                 Coming soon
+            </a>
+            <a href="https://lobby.cratis.studio/register?offer=trial&amp;utm_source=cratis.studio&amp;utm_medium=cta&amp;utm_content=cta" class="btn-hero-primary" data-signup hidden>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 8h6M8 5l3 3-3 3" />
+                </svg>
+                Start your 14-day free trial
             </a>
             <a href="https://cratis.io" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -656,6 +682,23 @@
         </div>
     </footer>
 
+    <script>
+        // Self-service signup is not open to everyone yet: the signup buttons only appear when the page is
+        // opened with ?signup (for example https://cratis.studio/?signup). Everyone else sees "Coming soon".
+        (() => {
+            const parameters = new URLSearchParams(window.location.search);
+            if (!parameters.has('signup')) return;
+            document.querySelectorAll('[data-signup]').forEach(element => element.hidden = false);
+            document.querySelectorAll('[data-coming-soon]').forEach(element => element.hidden = true);
+            const forwarded = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].filter(key => parameters.has(key));
+            if (forwarded.length === 0) return;
+            document.querySelectorAll('a[data-signup]').forEach(link => {
+                const url = new URL(link.href);
+                forwarded.forEach(key => url.searchParams.set(key, parameters.get(key)));
+                link.href = url.toString();
+            });
+        })();
+    </script>
 </body>
 
 </html>

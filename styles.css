@@ -1025,3 +1025,30 @@ body {
 @media (max-width: 600px) {
     .nav-links .nav-link { display: none; }
 }
+
+/* Elements toggled by the ?signup flag must stay hidden even when their class sets a display value. */
+[hidden] {
+    display: none !important;
+}
+
+.cta-trial {
+    position: relative;
+    z-index: 1;
+    color: #cbd5e1;
+    max-width: 36rem;
+    margin: 0 auto 2rem;
+    text-align: left;
+}
+
+.cta-trial-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.cta-trial-list {
+    list-style: disc;
+    padding-left: 1.25rem;
+    line-height: 1.7;
+    opacity: 0.85;
+}

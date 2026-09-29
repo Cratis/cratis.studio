@@ -68,3 +68,17 @@ yarn
 
 - This is a static site; no backend is required.
 - Deploying can be done via any static hosting provider.
+
+## Legal pages
+
+`terms-and-conditions.html` and `privacy-policy.html` are generated from Cratis Studio's legal documents
+(`Legal/*.md` in Cratis/Studio) - the versioned set people accept when they sign up. Do not edit their content
+by hand; change the documents in Studio and run:
+
+```bash
+node scripts/build-legal-pages.mjs ../Studio/Legal
+```
+
+The *Sync legal documents* workflow does the same weekly (or on demand) and opens a pull request when they
+changed.
+

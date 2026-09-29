@@ -1,0 +1,57 @@
+name: Sync legal documents
+
+# The terms and privacy policy on this site are generated from the documents Cratis Studio ships
+# (Cratis/Studio: Legal/*.md) - the versioned set its lobby asks people to accept. This regenerates the pages
+# and opens a pull request when they changed, so the site never says something different from what was agreed.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check out Cratis Studio's legal documents
+        uses: actions/checkout@v4
+        with:
+          repository: Cratis/Studio
+          path: studio
+          sparse-checkout: Legal
+          token: ${{ secrets.STUDIO_READ_TOKEN || github.token }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Regenerate the legal pages
+        run: node scripts/build-legal-pages.mjs studio/Legal
+
+      - name: Open a pull request when they changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf studio
+          if git diff --quiet -- terms-and-conditions.html privacy-policy.html; then
+            echo "The legal pages match Cratis Studio's documents."
+            exit 0
+          fi
+          version=$(grep -o 'Version [^·<]*' terms-and-conditions.html | head -1 | sed 's/Version //; s/ *$//')
+          branch="legal/sync-$version"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$branch"
+          git add terms-and-conditions.html privacy-policy.html
+          git commit -m "Update the legal pages to version $version"
+          git push --force origin "$branch"
+          gh pr view "$branch" >/dev/null 2>&1 || gh pr create \
+            --title "Update the legal pages to version $version" \
+            --body "Regenerated from Cratis/Studio \`Legal/\`. Merge once version $version is published to the lobby." \
+            --head "$branch"

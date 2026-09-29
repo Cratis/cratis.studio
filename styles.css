@@ -678,6 +678,33 @@ body {
     color: #e2e8f0;
 }
 
+.section-block h4 {
+    font-size: 1rem;
+    margin: 1rem 0 0.5rem;
+    color: #e2e8f0;
+}
+
+.legal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5rem 0 1rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.legal-table th,
+.legal-table td {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid rgba(148,163,184,0.15);
+    vertical-align: top;
+}
+
+.legal-table th {
+    color: #f8fafc;
+    font-weight: 600;
+}
+
 /* ── Vision page sign-off ────────────────────────────────────────────────── */
 .vision-signoff {
     margin-top: 3rem;

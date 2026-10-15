@@ -92,6 +92,7 @@
                 <a href="beta.html" class="nav-link">Beta</a>
                 <a href="https://cratis.io" target="_blank" rel="noopener noreferrer" class="nav-link">Docs ↗</a>
                 <a href="https://app.cratis.studio" target="_blank" rel="noopener noreferrer" class="btn-primary">Log in</a>
+                <a href="https://lobby.cratis.studio/register" class="btn-primary" data-signup-on hidden>Start free trial</a>
                 <a href="beta.html#contact" class="btn-primary">Contact us</a>
             </nav>
         </div>
@@ -123,7 +124,7 @@
         </p>
 
         <div class="hero-actions">
-            <a href="beta.html#contact" class="btn-hero-primary">
+            <a href="beta.html#contact" class="btn-hero-primary" data-signup-off>
                 <!-- arrow right icon -->
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
                     stroke-linejoin="round" aria-hidden="true">
@@ -131,6 +132,7 @@
                 </svg>
                 Coming soon
             </a>
+            <a href="https://lobby.cratis.studio/register" class="btn-hero-primary" data-signup-on hidden>Start your 14-day free trial</a>
             <a href="https://cratis.io" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
                 <!-- book icon -->
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -629,16 +631,17 @@
         </h2>
         <p class="cta-text">
             Join teams using Cratis Studio to align business and engineering around a shared model.
-            Self-service signup is coming soon. Contact us with questions about access.
+            <span data-signup-off>Self-service signup is coming soon. Contact us with questions about access.</span><span data-signup-on hidden>Start your 14-day free trial today &mdash; no credit card required.</span>
         </p>
         <div class="cta-actions">
-            <a href="beta.html#contact" class="btn-hero-primary">
+            <a href="beta.html#contact" class="btn-hero-primary" data-signup-off>
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
                     stroke-linejoin="round" aria-hidden="true">
                     <path d="M5 8h6M8 5l3 3-3 3" />
                 </svg>
                 Coming soon
             </a>
+            <a href="https://lobby.cratis.studio/register" class="btn-hero-primary" data-signup-on hidden>Start your 14-day free trial</a>
             <a href="https://cratis.io" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round" aria-hidden="true">
@@ -678,6 +681,8 @@
         </div>
     </footer>
 
+    <script src="site-config.js"></script>
+    <script src="signup.js"></script>
 </body>
 
 </html>

@@ -1052,3 +1052,8 @@ body {
 @media (max-width: 600px) {
     .nav-links .nav-link { display: none; }
 }
+
+/* The signup links ship hidden and are shown by signup.js; their display rules would otherwise win over [hidden]. */
+[hidden] {
+    display: none !important;
+}

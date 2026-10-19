@@ -108,6 +108,13 @@ const convert = markdown => {
     return { title, subtitle, body };
 };
 
+// Replaces the content attribute of a <meta> tag (matched by its name or property) in the page head.
+const setMeta = (page, key, value) => {
+    const pattern = new RegExp(`(<meta\\s+(?:name|property)="${key}"\\s+content=")[^"]*(")`);
+    if (!pattern.test(page)) throw new Error(`The page has no <meta> tag for "${key}"`);
+    return page.replace(pattern, (_, before, after) => `${before}${value}${after}`);
+};
+
 const render = (file, label) => {
     const page = readFileSync(file.target, 'utf8');
     const { title, subtitle, body } = convert(readFileSync(join(legalDirectory, file.source), 'utf8'));
@@ -124,9 +131,26 @@ const render = (file, label) => {
 ${body}
         </div>
     `;
-    writeFileSync(file.target, page.slice(0, start) + content + page.slice(end));
+    const attribute = text => escape(text).replaceAll('"', '&quot;');
+    const pageTitle = attribute(file.title);
+    const pageDescription = attribute(file.description(subtitle));
+    let updated = page.slice(0, start) + content + page.slice(end);
+    updated = updated.replace(/<title>[^<]*<\/title>/, `<title>${pageTitle}</title>`);
+    for (const key of ['og:title', 'twitter:title']) updated = setMeta(updated, key, pageTitle);
+    for (const key of ['description', 'og:description', 'twitter:description']) updated = setMeta(updated, key, pageDescription);
+    writeFileSync(file.target, updated);
     console.log(`${file.target}: ${subtitle}`);
 };
 
-render({ source: 'terms-and-conditions.md', target: 'terms-and-conditions.html' }, 'Terms &amp; Conditions');
-render({ source: 'privacy-policy.md', target: 'privacy-policy.html' }, 'Privacy Policy');
+render({
+    source: 'terms-and-conditions.md',
+    target: 'terms-and-conditions.html',
+    title: 'Cratis Studio Terms and Conditions: the agreement for using the service',
+    description: subtitle => `The terms and conditions for using Cratis Studio (${subtitle}): the agreement between you and Cratis when you use the service.`,
+}, 'Terms &amp; Conditions');
+render({
+    source: 'privacy-policy.md',
+    target: 'privacy-policy.html',
+    title: 'Cratis Studio Privacy Policy: how we handle your personal data',
+    description: subtitle => `The privacy policy for Cratis Studio (${subtitle}): how we handle your personal data and how to make a request about it.`,
+}, 'Privacy Policy');

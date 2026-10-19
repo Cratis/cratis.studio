@@ -1,0 +1,35 @@
+name: Verify Discoverability
+
+on:
+  pull_request:
+    paths:
+      - "*.html"
+      - "*.js"
+      - "*.css"
+      - "*.md"
+      - "llms.txt"
+      - "robots.txt"
+      - "sitemap.xml"
+      - "src/**"
+      - "scripts/**"
+      - ".github/workflows/verify-discoverability.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  discoverability:
+    uses: Cratis/Workflows/.github/workflows/verify-discoverability.yml@main
+    with:
+      site-path: .
+      base-url: https://cratis.studio
+      ignore: |
+        404.html
+        node_modules/**
+        .worktrees/**
+        .ai-work/**
+      # fail-on: error   # once the site is clean

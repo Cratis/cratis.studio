@@ -52,25 +52,11 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Patrick+Hand&display=swap"
         rel="stylesheet" />
 
-    <!-- Tailwind CSS (CDN) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'event': '#f0a050',
-                        'command': '#7ec8f0',
-                        'readmodel': '#b8d63b',
-                        'connected': '#10b981',
-                    }
-                }
-            }
-        };
-    </script>
-
     <!-- Custom styles -->
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Tailwind CSS, compiled at build time: npm run build:css -->
+    <link rel="stylesheet" href="tailwind.css" />
 </head>
 
 <body>

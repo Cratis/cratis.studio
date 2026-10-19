@@ -69,11 +69,32 @@ yarn
 - This is a static site; no backend is required.
 - Deploying can be done via any static hosting provider.
 
+## Tailwind CSS
+
+`index.html` uses Tailwind utility classes. The stylesheet is compiled ahead of time into `tailwind.css`, which is
+committed because the site is served as-is (there is no build step on deploy). Do not edit it by hand. After you add
+or change Tailwind classes in `index.html`, `signup.js` or `site-config.js`, or change `tailwind.config.js`, run:
+
+```bash
+npm run build:css
+```
+
+and commit the updated `tailwind.css`.
+
+## Sitemap
+
+`sitemap.xml` lists each page with a `<lastmod>` taken from the date of the last commit that changed it. After
+committing page changes, regenerate it and commit the result:
+
+```bash
+npm run build:sitemap
+```
+
 ## Legal pages
 
 `terms-and-conditions.html` and `privacy-policy.html` are generated from Cratis Studio's legal documents
 (`Legal/*.md` in Cratis/Studio) - the versioned set people accept when they sign up. Do not edit their content
-by hand; change the documents in Studio and run:
+by hand (this includes their titles and descriptions, which `scripts/build-legal-pages.mjs` sets); change the documents in Studio and run:
 
 ```bash
 node scripts/build-legal-pages.mjs ../Studio/Legal

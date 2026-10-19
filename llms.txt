@@ -1,0 +1,19 @@
+# Cratis Studio
+
+> Cratis Studio is a collaborative platform for event modeling, event brainstorming and domain-driven design. It is part of the open-source Cratis event sourcing ecosystem. Studio is currently in beta.
+
+## Cratis Studio
+
+- [Cratis Studio](https://cratis.studio/): What Cratis Studio is, its features and how it works.
+- [The vision](https://cratis.studio/vision.html): Why Cratis Studio exists. A Markdown version is at https://cratis.studio/vision.md.
+- [Beta](https://cratis.studio/beta.html): What beta means, what to expect and how your data is protected.
+- [Privacy policy](https://cratis.studio/privacy-policy.html)
+- [Terms and conditions](https://cratis.studio/terms-and-conditions.html)
+
+## Cratis
+
+- [Cratis documentation](https://www.cratis.io/): Developer documentation for the Cratis ecosystem.
+- [Event modeling documentation](https://www.cratis.io/event-modeling/): Event modeling with Cratis.
+- [Cratis engineering blog](https://blog.cratis.io): Articles from the Cratis engineers.
+- [Cratis](https://cratis.no): The company behind Cratis Studio and the Cratis ecosystem.
+- [Cratis on GitHub](https://github.com/Cratis): The open-source Cratis repositories.

@@ -405,6 +405,16 @@ body {
     margin: 0;
 }
 
+.feature-card-text a {
+    color: #e2e8f0;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.feature-card-text a:hover {
+    color: #ffffff;
+}
+
 /* ── Two-column split ────────────────────────────────────────────────────── */
 .split {
     display: grid;

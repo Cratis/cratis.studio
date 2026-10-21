@@ -44,6 +44,7 @@
             <nav class="nav-links" aria-label="Primary navigation">
                 <a href="#tour" class="nav-link">Product</a>
                 <a href="#how-it-works" class="nav-link">How it works</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
                 <a href="vision.html" class="nav-link">Vision</a>
                 <a href="https://cratis.io" target="_blank" rel="noopener noreferrer" class="nav-link">Docs ↗</a>
                 <a href="https://app.cratis.studio" target="_blank" rel="noopener noreferrer" class="nav-link">Log in</a>
@@ -429,6 +430,62 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════════════════ -->
+    <!--  PRICING                                                               -->
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="section section--alt" id="pricing">
+        <div class="section-wrapper">
+            <div style="text-align:center">
+                <span class="section-label section-label--orange">Pricing</span>
+                <h2 class="section-heading">Pay per seat. The bigger the team, the lower the price.</h2>
+                <p class="section-body" style="margin:0 auto">Start with a 14-day free trial. Prices exclude VAT.</p>
+                <div class="price-toggle" role="group" aria-label="Billing period">
+                    <button type="button" class="is-active" data-period="monthly">Monthly</button>
+                    <button type="button" data-period="yearly">Yearly (save more)</button>
+                </div>
+            </div>
+            <div class="price-grid" data-period="monthly">
+                <div class="price-card reveal">
+                    <h3>Single user</h3>
+                    <p class="price-seats">1 seat</p>
+                    <p class="price-amount"><span data-monthly="€12.00" data-yearly="€10.20">€12.00</span><small>/mo</small></p>
+                    <p class="price-per">€12.00 per seat / mo</p>
+                    <p class="price-yearly"><span class="price-save">Save 15%</span> €122.40 billed yearly</p>
+                </div>
+                <div class="price-card reveal">
+                    <h3>Small team</h3>
+                    <p class="price-seats">3 seats</p>
+                    <p class="price-amount"><span data-monthly="€30.00" data-yearly="€24.90">€30.00</span><small>/mo</small></p>
+                    <p class="price-per">€10.00 per seat / mo</p>
+                    <p class="price-yearly"><span class="price-save">Save 17%</span> €298.80 billed yearly</p>
+                </div>
+                <div class="price-card reveal">
+                    <h3>Team of 10</h3>
+                    <p class="price-seats">10 seats</p>
+                    <p class="price-amount"><span data-monthly="€80.00" data-yearly="€64.00">€80.00</span><small>/mo</small></p>
+                    <p class="price-per">€8.00 per seat / mo</p>
+                    <p class="price-yearly"><span class="price-save">Save 20%</span> €768.00 billed yearly</p>
+                </div>
+                <div class="price-card reveal">
+                    <h3>Team of 50</h3>
+                    <p class="price-seats">50 seats</p>
+                    <p class="price-amount"><span data-monthly="€300.00" data-yearly="€234.00">€300.00</span><small>/mo</small></p>
+                    <p class="price-per">€6.00 per seat / mo</p>
+                    <p class="price-yearly"><span class="price-save">Save 22%</span> €2,808.00 billed yearly</p>
+                </div>
+                <div class="price-card price-card--enterprise reveal">
+                    <h3>Enterprise</h3>
+                    <p class="price-seats">Unlimited seats</p>
+                    <p class="price-amount price-amount--text">Let's talk</p>
+                    <a href="https://cratis.io" target="_blank" rel="noopener noreferrer" class="btn-outline">Contact sales</a>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:2.5rem">
+                <a href="https://lobby.cratis.studio/register" class="btn-hero-primary">Start your free trial</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
     <!--  TRUST                                                          -->
     <!-- ═══════════════════════════════════════════════════════════════════════ -->
     <section style="padding: 0 1.5rem 5rem">
@@ -485,6 +542,7 @@
                 <a href="https://github.com/Cratis" target="_blank" rel="noopener noreferrer"
                     class="footer-link">GitHub</a>
                 <a href="vision.html" class="footer-link">Vision</a>
+                <a href="#pricing" class="footer-link">Pricing</a>
                 <a href="privacy-policy.html" class="footer-link">Privacy policy</a>
                 <a href="terms-and-conditions.html" class="footer-link">Terms</a>
                 <a href="https://lobby.cratis.studio/register" class="footer-link">Sign up</a>
@@ -504,6 +562,19 @@
                 entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); } });
             }, { threshold: 0.12 });
             els.forEach(function (e) { io.observe(e); });
+        })();
+
+        // Monthly / yearly pricing toggle.
+        (function () {
+            var grid = document.querySelector('.price-grid');
+            document.querySelectorAll('.price-toggle button').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var yearly = btn.dataset.period === 'yearly';
+                    grid.dataset.period = btn.dataset.period;
+                    document.querySelectorAll('.price-toggle button').forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+                    grid.querySelectorAll('[data-monthly]').forEach(function (e) { e.textContent = yearly ? e.dataset.yearly : e.dataset.monthly; });
+                });
+            });
         })();
     </script>
 </body>

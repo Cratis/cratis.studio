@@ -14,7 +14,6 @@ const origin = 'https://cratis.studio';
 const pages = [
     { file: 'index.html', path: '/' },
     { file: 'vision.html', path: '/vision.html' },
-    { file: 'beta.html', path: '/beta.html' },
     { file: 'privacy-policy.html', path: '/privacy-policy.html' },
     { file: 'terms-and-conditions.html', path: '/terms-and-conditions.html' },
 ];

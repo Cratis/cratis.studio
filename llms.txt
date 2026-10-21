@@ -1,12 +1,12 @@
 # Cratis Studio
 
-> Cratis Studio is a collaborative platform for event modeling, event brainstorming and domain-driven design. It is part of the open-source Cratis event sourcing ecosystem. Studio is a paid Preview product. Public sign-up is not open yet, and pricing is not published yet.
+> Cratis Studio is a collaborative platform for event modeling, event brainstorming and domain-driven design. It is part of the open-source Cratis event sourcing ecosystem. Sign-up is open with a 14-day free trial, and Studio is priced per seat.
 
 ## Cratis Studio
 
 - [Cratis Studio](https://cratis.studio/): What Cratis Studio is, its features and how it works.
 - [The vision](https://cratis.studio/vision.html): Why Cratis Studio exists. A Markdown version is at https://cratis.studio/vision.md.
-- [Preview](https://cratis.studio/beta.html): What Preview means, what to expect and how your data is protected.
+- [Pricing](https://cratis.studio/#pricing): Per-seat plans, monthly or yearly.
 - [Privacy policy](https://cratis.studio/privacy-policy.html)
 - [Terms and conditions](https://cratis.studio/terms-and-conditions.html)
 

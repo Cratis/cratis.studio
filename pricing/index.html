@@ -1,0 +1,132 @@
+<!doctype html>
+<!--
+  Copyright (c) Cratis. All rights reserved.
+  Licensed under the MIT license. See LICENSE file in the project root for full license information.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="../logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing — Cratis Studio</title>
+    <meta name="description" content="Simple per-seat pricing for Cratis Studio: Solo for €20 a month, Team for €199 a month up to 10 users, Organization for €399 a month up to 30 users, plus Enterprise on request." />
+    <link rel="canonical" href="https://cratis.studio/pricing/" />
+    <meta property="og:title" content="Pricing — Cratis Studio" />
+    <meta property="og:description" content="Solo, Team, Organization and Enterprise plans for Cratis Studio. Start with a 14-day free trial." />
+    <meta property="og:url" content="https://cratis.studio/pricing/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://cratis.studio/og-image.jpg" />
+    <meta property="og:site_name" content="Cratis Studio" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pricing — Cratis Studio" />
+    <meta name="twitter:description" content="Solo, Team, Organization and Enterprise plans for Cratis Studio. Start with a 14-day free trial." />
+    <meta name="twitter:image" content="https://cratis.studio/og-image.jpg" />
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+    <header class="nav">
+        <div class="nav-inner">
+            <a href="../" class="nav-logo" aria-label="Cratis Studio home">
+                <img src="../logo.svg" alt="Cratis Studio logo" class="nav-logo-mark" />
+                <span class="nav-brand">Cratis Studio</span>
+            </a>
+            <nav class="nav-links" aria-label="Primary navigation">
+                <a href="../#tour" class="nav-link">Product</a>
+                <a href="../#how-it-works" class="nav-link">How it works</a>
+                <a href="../vision.html" class="nav-link">Vision</a>
+                <a href="./" class="nav-link" aria-current="page">Pricing</a>
+                <a href="https://app.cratis.studio" target="_blank" rel="noopener noreferrer" class="btn-primary">Log in</a>
+                <a href="https://lobby.cratis.studio/register" class="btn-primary" data-signup-on hidden>Sign up</a>
+            </nav>
+        </div>
+    </header>
+    <main class="page">
+        <div class="page-wrapper">
+            <div class="page-header">
+                <span class="section-label section-label--orange">Pricing</span>
+                <h1 class="section-heading">Priced by the seat. Pick the size of your team.</h1>
+                <p class="page-subtitle">Start with a 14-day free trial, then choose the plan that fits the people who work in Studio. Prices are in euros and exclude VAT.</p>
+                <div class="price-toggle" role="group" aria-label="Billing period">
+                    <button type="button" class="is-active" data-period="monthly" aria-pressed="true">Monthly</button>
+                    <button type="button" data-period="yearly" aria-pressed="false">Yearly (save 17%)</button>
+                </div>
+            </div>
+            <div class="price-grid" data-period="monthly">
+                <article class="price-card" data-monthly="20" data-yearly-discount="17">
+                    <h2>Solo</h2>
+                    <p class="price-for">For one person working on their own.</p>
+                    <p class="price-amount"><span class="amount">€20</span><small>per month</small></p>
+                    <p class="price-billed" aria-live="polite">Billed monthly</p>
+                    <a href="https://lobby.cratis.studio/register?utm_source=cratis.studio&utm_medium=website&utm_campaign=pricing" class="btn-outline">Start free trial</a>
+                    <ul class="price-list">
+                        <li><b>1</b> user</li>
+                        <li>All of Studio's features</li>
+                        <li>14-day free trial</li>
+                    </ul>
+                </article>
+                <article class="price-card price-card--featured" data-monthly="199" data-yearly-discount="17">
+                    <span class="price-badge">Most popular</span>
+                    <h2>Team</h2>
+                    <p class="price-for">For a team that designs and ships together.</p>
+                    <p class="price-amount"><span class="amount">€199</span><small>per month</small></p>
+                    <p class="price-billed" aria-live="polite">Billed monthly</p>
+                    <a href="https://lobby.cratis.studio/register?utm_source=cratis.studio&utm_medium=website&utm_campaign=pricing" class="btn-hero-primary">Start free trial</a>
+                    <ul class="price-list">
+                        <li>Up to <b>10</b> users</li>
+                        <li>All of Studio's features</li>
+                        <li>14-day free trial</li>
+                    </ul>
+                </article>
+                <article class="price-card" data-monthly="399" data-yearly-discount="17">
+                    <h2>Organization</h2>
+                    <p class="price-for">For larger organizations with several teams.</p>
+                    <p class="price-amount"><span class="amount">€399</span><small>per month</small></p>
+                    <p class="price-billed" aria-live="polite">Billed monthly</p>
+                    <a href="https://lobby.cratis.studio/register?utm_source=cratis.studio&utm_medium=website&utm_campaign=pricing" class="btn-outline">Start free trial</a>
+                    <ul class="price-list">
+                        <li>Up to <b>30</b> users</li>
+                        <li>All of Studio's features</li>
+                        <li>14-day free trial</li>
+                    </ul>
+                </article>
+                <article class="price-card price-card--enterprise">
+                    <h2>Enterprise</h2>
+                    <p class="price-for">For more than 30 users, or with security and procurement requirements.</p>
+                    <p class="price-amount price-amount--text">Let's talk</p>
+                    <p class="price-billed">Custom pricing and contract</p>
+                    <a href="mailto:hello@cratis.studio?subject=Cratis%20Studio%20Enterprise" class="btn-outline">Contact sales</a>
+                    <ul class="price-list">
+                        <li><b>30+</b> users</li>
+                        <li>Every Studio feature</li>
+                        <li>Custom terms and support</li>
+                    </ul>
+                </article>
+            </div>
+            <p class="price-note">Questions about plans or invoicing? Write to <a href="mailto:hello@cratis.studio">hello@cratis.studio</a>. See the <a href="../terms-and-conditions.html">terms and conditions</a>.</p>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-inner">
+            <a href="../" class="footer-logo" aria-label="Cratis Studio">
+                <img src="../logo.svg" alt="Cratis Studio logo" class="nav-logo-mark" />
+                <span class="footer-brand">Cratis Studio</span>
+            </a>
+            <div class="footer-links">
+                <a href="../" class="footer-link">Home</a>
+                <a href="../vision.html" class="footer-link">Vision</a>
+                <a href="./" class="footer-link">Pricing</a>
+                <a href="../privacy-policy.html" class="footer-link">Privacy policy</a>
+                <a href="../terms-and-conditions.html" class="footer-link">Terms</a>
+                <a href="https://cratis.no" target="_blank" rel="noopener noreferrer" class="footer-link">About Cratis</a>
+                <a href="https://discord.gg/kt4AMpV8WV" target="_blank" rel="noopener noreferrer" class="footer-link">Discord</a>
+                <a href="https://app.cratis.studio" target="_blank" rel="noopener noreferrer" class="footer-link">Log in</a>
+            </div>
+            <p class="footer-copy">© 2025 Cratis. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../site-config.js"></script>
+    <script src="../signup.js"></script>
+    <script src="pricing.js"></script>
+</body>
+
+</html>

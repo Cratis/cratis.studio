@@ -8,7 +8,7 @@ Use Studio when your team needs a shared model of expected behavior. Modeling do
 
 - [Cratis Studio](https://cratis.studio/): What Cratis Studio is, its features and how it works.
 - [The vision](https://cratis.studio/vision.html): Why Cratis Studio exists. A Markdown version is at https://cratis.studio/vision.md.
-- [Pricing](https://cratis.studio/#pricing): Published 14-day free trial and per-seat plans, monthly or yearly.
+- [Pricing](https://cratis.studio/pricing/): Solo, Team and Organization per-seat plans, monthly or yearly, and Enterprise through hello@cratis.studio.
 - [Privacy policy](https://cratis.studio/privacy-policy.html)
 - [Terms and conditions](https://cratis.studio/terms-and-conditions.html)
 

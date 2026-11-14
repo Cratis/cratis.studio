@@ -11,22 +11,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cratis Studio — Event modeling for teams and their agents</title>
     <meta name="description"
-        content="Cratis Studio is a collaborative platform for event modeling. Brainstorm events, model slices, prove behavior with runnable Given/When/Then specifications and design the screens — together with your team and your agents." />
+        content="Cratis Studio is an optional commercial event-modeling workspace within Cratis Platform. Model commands, events, read models and screens with your team." />
     <link rel="canonical" href="https://cratis.studio/" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://cratis.studio/" />
-    <meta property="og:title" content="Cratis Studio — Event Modeling & Brainstorming Platform" />
+    <meta property="og:title" content="Cratis Studio — Collaborative event modeling" />
     <meta property="og:description"
-        content="Collaborative event modeling, event brainstorming, and domain-driven design — part of the open-source Cratis event sourcing ecosystem." />
+        content="Cratis Studio is an optional commercial event-modeling workspace within Cratis Platform. Model commands, events, read models and screens with your team." />
     <meta property="og:image" content="https://cratis.studio/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Cratis Studio logo with the tagline “Design together. Understand what runs.”" />
     <meta property="og:site_name" content="Cratis Studio" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Cratis Studio — Event Modeling &amp; Brainstorming Platform" />
+    <meta name="twitter:title" content="Cratis Studio — Collaborative event modeling" />
     <meta name="twitter:description"
-        content="Collaborative event modeling, event brainstorming, and domain-driven design — part of the open-source Cratis event sourcing ecosystem." />
+        content="Cratis Studio is an optional commercial event-modeling workspace within Cratis Platform. Model commands, events, read models and screens with your team." />
     <meta name="twitter:image" content="https://cratis.studio/og-image.jpg" />
     <meta name="twitter:image:alt" content="Cratis Studio logo with the tagline “Design together. Understand what runs.”" />
     <script type="application/ld+json">
@@ -49,7 +49,7 @@
                     "operatingSystem": "Web",
                     "url": "https://cratis.studio/",
                     "image": "https://cratis.studio/og-image.jpg",
-                    "description": "Cratis Studio is a collaborative platform for event modeling, event brainstorming, and domain-driven design. Part of the open-source Cratis event sourcing ecosystem.",
+                    "description": "Cratis Studio is an optional commercial workspace for collaborative event modeling within Cratis Platform. Developers, domain experts and product owners model commands, events, read models, specifications and screens together.",
                     "isPartOf": { "@id": "https://cratis.studio/#website" },
                     "publisher": { "@type": "Organization", "@id": "https://cratis.no/#organization", "name": "Cratis", "url": "https://cratis.no", "sameAs": ["https://github.com/Cratis", "https://www.linkedin.com/company/cratis-stack"] }
                 }
@@ -100,13 +100,13 @@
 
         <h1 class="hero-title">
             Model how your system behaves.<br />
-            <span class="hero-title-accent">Before anyone writes the code.</span>
+            <span class="hero-title-accent">With the people who know the domain.</span>
         </h1>
 
         <p class="hero-subtitle">
-            Cratis Studio is the collaborative workspace for event modeling. Brainstorm the events, shape them into
-            slices, prove them with runnable specifications and design the screens — with your team and your agents on
-            the same board.
+            Bring developers, domain experts and product owners onto the same board. In Cratis Studio, you brainstorm
+            events, connect commands to outcomes, and discuss specifications and screen prototypes. Studio is an optional
+            collaborative event-modeling workspace within Cratis Platform.
         </p>
 
         <div class="hero-actions">
@@ -145,34 +145,34 @@
         <div class="section-wrapper">
             <div style="text-align:center">
                 <span class="section-label section-label--orange">Why Studio</span>
-                <h2 class="section-heading">Writing code was never the hard part.</h2>
+                <h2 class="section-heading">Agree on the behavior before implementing a change.</h2>
                 <p class="section-body" style="margin:0 auto">
-                    The hard part is agreeing on what the system should do — and keeping that agreement alive. Agents
-                    make code cheap. They make a vague idea expensive.
+                    A developer needs to know which command changes the system. A domain expert needs to check the
+                    outcome. Studio puts those questions beside the events and screens your team is discussing.
                 </p>
             </div>
 
             <div class="problem-grid">
                 <div class="problem-card reveal">
-                    <h3>The whiteboard never makes it into the code.</h3>
+                    <h3>Workshop decisions are hard to find later.</h3>
                     <p>The workshop ends, the photo of the sticky notes is filed, and the real design lives in
                         someone's head.</p>
                     <p class="with"><strong>With Studio:</strong> the workshop board is the model. Brainstormed events
                         become slices on the same canvas, with the decisions and open questions still attached.</p>
                 </div>
                 <div class="problem-card reveal">
-                    <h3>Documentation drifts the day it's written.</h3>
-                    <p>Diagrams go stale and tests are written after the fact, if at all. Nobody can say what the
-                        system is <em>supposed</em> to do.</p>
-                    <p class="with"><strong>With Studio:</strong> behavior is stated as Given / When / Then
-                        specifications that live next to the slice they describe — and can actually be run.</p>
+                    <h3>A diagram leaves behavior open to interpretation.</h3>
+                    <p>A command name alone does not explain what the system is <em>supposed</em> to do, or when
+                        it should reject the request.</p>
+                    <p class="with"><strong>With Studio:</strong> Given / When / Then specifications sit beside
+                        the slice, so the team can discuss expected events and rejection outcomes.</p>
                 </div>
                 <div class="problem-card reveal">
-                    <h3>Agents are only as good as the intent you give them.</h3>
-                    <p>A loose prompt gets you loose software, written in whatever shape the model happened to
-                        learn.</p>
-                    <p class="with"><strong>With Studio:</strong> humans decide the design; agents work against an
-                        opinionated, event-sourced model instead of a blank page.</p>
+                    <h3>Agent suggestions need domain context and review.</h3>
+                    <p>A prompt can leave business rules unstated. A plausible response can still miss the
+                        behavior your team intended.</p>
+                    <p class="with"><strong>With Studio:</strong> discuss changes in the context of the board.
+                        People remain responsible for checking suggestions against the domain and implementation.</p>
                 </div>
             </div>
         </div>
@@ -278,15 +278,16 @@
                     <div class="tour-text reveal">
                         <span class="tour-num">03 · SPECIFY</span>
                         <span class="section-label section-label--lime">Specifications</span>
-                        <h2 class="section-heading">Behavior you can read — and run.</h2>
+                        <h2 class="section-heading">Make expected behavior concrete.</h2>
                         <p class="section-body">
                             Describe what should happen as Given, When, Then — using the same events and commands
-                            as the model. They are the regression suite and the shared definition of done.
+                            as the model. Review successful outcomes and rejected requests together; implementation
+                            and regression testing still need engineering work.
                         </p>
                         <ul class="tour-list">
                             <li>Specifications sit beside the slice they describe</li>
                             <li>Business rules, like validation, are stated as outcomes</li>
-                            <li>Run them against the model as it changes</li>
+                            <li>Review expected outcomes when the model changes</li>
                         </ul>
                     </div>
                 </div>
@@ -344,7 +345,7 @@
         <div class="section-wrapper">
             <div style="text-align:center">
                 <span class="section-label section-label--blue">How it works</span>
-                <h2 class="section-heading">From a room full of sticky notes to a system you can trust</h2>
+                <h2 class="section-heading">From workshop questions to a model the team can review</h2>
             </div>
 
             <div class="steps">
@@ -369,8 +370,8 @@
                 <div class="step reveal">
                     <div class="step-number">4</div>
                     <h3 class="step-title">Build &amp; iterate</h3>
-                    <p class="step-text">Generate code from the model, and keep changing the model first as
-                        requirements move.</p>
+                    <p class="step-text">Use the model to guide implementation. Review code, test behavior and
+                        revisit the model as requirements change.</p>
                 </div>
             </div>
         </div>
@@ -417,15 +418,16 @@
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-card-icon" style="background: rgba(16,185,129,0.12);">⌨️</div>
-                    <h3 class="feature-card-title">Code generation</h3>
-                    <p class="feature-card-text">Generate type-safe code from your model so what you designed and what
-                        you run don't drift apart. More on the way.</p>
+                    <h3 class="feature-card-title">Implementation conversations</h3>
+                    <p class="feature-card-text">Use commands, events and read models to discuss what needs building.
+                        Check the implementation against those decisions as the application changes.</p>
                 </div>
                 <div class="feature-card reveal">
                     <div class="feature-card-icon" style="background: rgba(37,99,235,0.15);">🗂️</div>
                     <h3 class="feature-card-title">Event sourced at the core</h3>
-                    <p class="feature-card-text">Studio is built on Cratis Chronicle. Everything that happens is kept
-                        as an event, so nothing valuable is thrown away.</p>
+                    <p class="feature-card-text">Studio is built on Cratis Chronicle, the event-storage and projection
+                        component of Cratis Platform. Modeling in Studio and operating an application's event store
+                        are different tasks.</p>
                 </div>
             </div>
         </div>
@@ -438,18 +440,18 @@
         <div class="section-wrapper">
             <div style="text-align:center">
                 <span class="section-label section-label--lime">Opinionated on purpose</span>
-                <h2 class="section-heading">Fewer choices. Better software.</h2>
+                <h2 class="section-heading">Keep behavior at the center of the discussion.</h2>
                 <p class="section-body" style="margin:0 auto">
-                    Agents learned from code written by humans for humans, at every level of quality. Studio gives them
-                    a firmer foundation to stand on. <a href="vision.html" style="color:#7ec8f0;text-decoration:none">Read
+                    Studio organizes the discussion around events, commands and the people using the system.
+                    For the thinking behind that approach, <a href="vision.html" style="color:#7ec8f0;text-decoration:none">read
                         the vision →</a>
                 </p>
             </div>
             <div class="principles">
                 <div class="principle reveal">
-                    <h3>Event sourcing by default</h3>
-                    <p>Nothing is overwritten and nothing is lost — the history is there for new features and new
-                        questions.</p>
+                    <h3>Model events explicitly</h3>
+                    <p>Name what happened in the domain and connect it to the command or interaction that caused it.
+                        Storage and retention decisions belong to the application's implementation.</p>
                 </div>
                 <div class="principle reveal">
                     <h3>Vertical slices</h3>
@@ -457,12 +459,13 @@
                 </div>
                 <div class="principle reveal">
                     <h3>Humans decide, agents assist</h3>
-                    <p>People own the design and the value. Agents do the legwork against a model they can't
-                        misread.</p>
+                    <p>People own the design and check agent suggestions. A shared model supplies context;
+                        it does not guarantee that an agent understands the domain.</p>
                 </div>
                 <div class="principle reveal">
                     <h3>Specifications, not hope</h3>
-                    <p>Given / When / Then keeps quality and regression part of the design, not an afterthought.</p>
+                    <p>Given / When / Then makes expected outcomes explicit during design. Use those outcomes
+                        to guide implementation tests.</p>
                 </div>
             </div>
         </div>
@@ -498,9 +501,9 @@
                 <div class="feature-card">
                     <h3 class="feature-card-title">What is Cratis Studio?</h3>
                     <p class="feature-card-text">
-                        Cratis Studio is a collaborative platform for event modeling, event brainstorming, and
-                        domain-driven design. Teams use it to model commands, events, and read models before writing
-                        production code — learn more in the
+                        Cratis Studio is a collaborative event-modeling workspace. Use it when your team needs to
+                        discuss commands, events, read models and screens together. For the method behind the board,
+                        start with the
                         <a href="https://www.cratis.io/event-modeling/">event modeling documentation</a>.
                     </p>
                 </div>
@@ -515,37 +518,41 @@
                 </div>
 
                 <div class="feature-card">
-                    <h3 class="feature-card-title">How does it relate to Cratis Chronicle?</h3>
+                    <h3 class="feature-card-title">Do I need Studio to use Cratis Platform?</h3>
                     <p class="feature-card-text">
-                        Studio is built on Cratis Chronicle, an open-source event-sourcing platform for .NET.
-                        Studio provides collaborative modeling, while Chronicle captures state changes as immutable
-                        events — explore the <a href="https://www.cratis.io/">Cratis documentation</a>.
+                        No. Cratis is the organization; Cratis Platform brings together independently adoptable
+                        components. Chronicle handles event storage and projections. Arc handles application commands
+                        and queries, including without event sourcing. Components provides optional React UI.
+                        Go directly to the <a href="https://www.cratis.io/">Cratis documentation</a> to build with
+                        those tools; Studio adds a shared modeling workspace, not a required first step.
                     </p>
                 </div>
 
                 <div class="feature-card">
-                    <h3 class="feature-card-title">What does it generate?</h3>
+                    <h3 class="feature-card-title">Does a model replace implementation?</h3>
                     <p class="feature-card-text">
-                        Studio generates C# commands, events, and projections from a slice into your connected repository.
-                        An AI agent can then refine the generated code for you to review, as described in
-                        <a href="#how-it-works">how it works</a>.
+                        No. A model records intended behavior and gives the team something concrete to review.
+                        Engineers still implement integrations, test the code and decide how to deploy and operate
+                        the application. See <a href="#how-it-works">how modeling fits into that work</a>.
                     </p>
                 </div>
 
                 <div class="feature-card">
-                    <h3 class="feature-card-title">Can I try it today, and what does it cost?</h3>
+                    <h3 class="feature-card-title">Where can I find access and pricing information?</h3>
                     <p class="feature-card-text">
-                        Yes — sign up and start a 14-day free trial. After that Studio is priced per seat; see the
-                        <a href="pricing/">pricing</a> and the <a href="terms-and-conditions.html">terms and conditions</a>.
+                        Studio is a commercial product, separate from Cratis's open-source tools. This site provides
+                        account links and <a href="pricing/">pricing</a>, including the published 14-day free trial
+                        and per-seat plans. Read the <a href="terms-and-conditions.html">terms and conditions</a>
+                        for the service terms.
                     </p>
                 </div>
 
                 <div class="feature-card">
-                    <h3 class="feature-card-title">Is my data an audit trail?</h3>
+                    <h3 class="feature-card-title">Does event modeling give my application an audit trail?</h3>
                     <p class="feature-card-text">
-                        Yes — Studio captures every state change as an immutable event, giving you an append-only audit
-                        trail. You can replay history into new projections; see
-                        <a href="#why">why Studio is built on event sourcing</a>.
+                        No. Modeling events describes what the application should record; it does not establish
+                        storage, retention or compliance guarantees for your application. Studio's
+                        <a href="#features">event-sourcing approach</a> is separate from those engineering decisions.
                     </p>
                 </div>
             </div>

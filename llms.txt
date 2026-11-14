@@ -1,6 +1,8 @@
 # Cratis Studio
 
-> Cratis Studio is a collaborative platform for event modeling, event brainstorming and domain-driven design. It is part of the open-source Cratis event sourcing ecosystem. Sign-up is open with a 14-day free trial, and Studio is priced per seat.
+> Cratis Studio is an optional commercial workspace for collaborative event modeling within Cratis Platform. Developers, domain experts and product owners use it to brainstorm events and discuss commands, read models, specifications and screen prototypes. See the site for account access, pricing and service terms.
+
+Use Studio when your team needs a shared model of expected behavior. Modeling does not replace implementation, testing or operation of your application. Studio is not required to use Chronicle, Arc or Components.
 
 ## Cratis Studio
 
@@ -12,8 +14,8 @@
 
 ## Cratis
 
-- [Cratis documentation](https://www.cratis.io/): Developer documentation for the Cratis ecosystem.
+- [Cratis documentation](https://www.cratis.io/): Start here to build directly with Cratis Platform. Chronicle handles event storage and projections; Arc handles application commands and queries, including without event sourcing; Components provides optional React UI.
 - [Event modeling documentation](https://www.cratis.io/event-modeling/): Event modeling with Cratis.
 - [Cratis engineering blog](https://blog.cratis.io): Articles from the Cratis engineers.
-- [Cratis](https://cratis.no): The company behind Cratis Studio and the Cratis ecosystem.
+- [Cratis](https://cratis.no): The organization behind Cratis Platform and Cratis Studio.
 - [Cratis on GitHub](https://github.com/Cratis): The open-source Cratis repositories.

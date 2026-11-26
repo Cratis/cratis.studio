@@ -13,6 +13,6 @@ jobs:
     permissions:
       contents: read
       packages: read
-    uses: Cratis/Workflows/.github/workflows/update-packages.yml@main
+    uses: Cratis/Workflows/.github/workflows/update-packages.yml@99fe75d8d463c39633596f417cb4c51539f3db0b # main 2026-11-26
     secrets:
       PAT_WORKFLOWS: ${{ secrets.PAT_WORKFLOWS }}

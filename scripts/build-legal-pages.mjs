@@ -12,6 +12,7 @@
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { escape, escapeQuotes, inline } from './legal-markdown.mjs';
 
 const legalDirectory = process.argv[2];
 if (!legalDirectory) {
@@ -19,13 +20,7 @@ if (!legalDirectory) {
     process.exit(1);
 }
 
-const escape = text => text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
-
-const inline = text => escape(text)
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/(^|[^*])\*(?!\s)(.+?)\*(?!\*)/g, '$1<em>$2</em>')
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
-    .replace(/\[([^\]]+)\]\((https?:[^)\s]+|mailto:[^)\s]+)\)/g, '<a href="$2">$1</a>');
+const attribute = text => escapeQuotes(escape(text));
 
 const convert = markdown => {
     const lines = markdown.replace(/\r\n/g, '\n').split('\n');
@@ -131,7 +126,6 @@ const render = (file, label) => {
 ${body}
         </div>
     `;
-    const attribute = text => escape(text).replaceAll('"', '&quot;');
     const pageTitle = attribute(file.title);
     const pageDescription = attribute(file.description(subtitle));
     let updated = page.slice(0, start) + content + page.slice(end);

@@ -20,12 +20,21 @@ if (!legalDirectory) {
 }
 
 const escape = text => text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+const escapeQuotes = text => text.replaceAll('"', '&quot;').replaceAll("'", '&#39;');
+const attribute = text => escapeQuotes(escape(text));
 
 const inline = text => escape(text)
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/(^|[^*])\*(?!\s)(.+?)\*(?!\*)/g, '$1<em>$2</em>')
     .replace(/`([^`]+)`/g, '<code>$1</code>')
-    .replace(/\[([^\]]+)\]\((https?:[^)\s]+|mailto:[^)\s]+)\)/g, '<a href="$2">$1</a>');
+    .replace(/\[([^\]]+)\]\(((?:[^()\s]|\([^()\s]*\))*)\)/g, (_, label, href) => {
+        // The label and href are already text-escaped. Reject generated inline tags in hrefs.
+        if (/[<>]/.test(href)) return label;
+        const url = URL.parse(href, 'https://cratis.studio/');
+        return ['http:', 'https:', 'mailto:'].includes(url?.protocol)
+            ? `<a href="${escapeQuotes(href)}">${label}</a>`
+            : label;
+    });
 
 const convert = markdown => {
     const lines = markdown.replace(/\r\n/g, '\n').split('\n');
@@ -131,7 +140,6 @@ const render = (file, label) => {
 ${body}
         </div>
     `;
-    const attribute = text => escape(text).replaceAll('"', '&quot;');
     const pageTitle = attribute(file.title);
     const pageDescription = attribute(file.description(subtitle));
     let updated = page.slice(0, start) + content + page.slice(end);
